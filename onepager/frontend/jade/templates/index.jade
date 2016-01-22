@@ -1,0 +1,561 @@
+include ../mixins
+
+doctype html
+
+html(lang="en")
+    head
+        // Basic page needs.
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="description", content="Redefine Typing")
+        meta(name="author", content="Ofir123")
+        title OnePager
+        base(href="/")
+        // Mobile specific needs.
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        // Favicon.
+        link(rel="shortcut icon", type="image/png", href="/media/img/favicon.png")
+
+        | {% if config.DEBUG %}
+        // Including livereload in production cause a performance hit for users,
+            so the following line will not be emitted if the settings are not set to debug.
+        // buildCfg is provided by gulp and is the same as build.config.js.
+        +script("http://localhost:" + buildCfg.livereloadPort + "/livereload.js?snipver=1")
+        | {% endif %}
+
+        // JQuery.
+        +script("https://code.jquery.com/jquery-1.11.1.min.js")
+        // Bootstrap.
+        +style("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
+        +script("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js")
+        // FontAwesome.
+        +style("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css")
+        // Superslides.
+        +style("https://cdn.jsdelivr.net/jquery.superslides/0.6.2/stylesheets/superslides.css")
+        +script("https://cdn.jsdelivr.net/jquery.superslides/0.6.2/jquery.superslides.min.js")
+        // Slick.
+        +style("/media/artifacts/slick/slick.css")
+        +script("/media/artifacts/slick/slick.min.js")
+        // Animate.
+        +style("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css")
+        // Circle counter.
+        +style("https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/css/jquery.circliful.css")
+        +script("https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js")
+        // WOW.
+        +script("https://cdnjs.cloudflare.com/ajax/libs/wow/1.0.2/wow.min.js")
+        // Modernizr.
+        +script("https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js")
+        // Classie.
+        +script("https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.0/classie.min.js")
+        // Fonts
+        +style("https://fonts.googleapis.com/css?family=Open+Sans")
+        +style("https://fonts.googleapis.com/css?family=Varela")
+        +style("https://fonts.googleapis.com/css?family=Montserrat")
+        // Custom.
+        +style("/media/build/app.css")
+        +script("/media/build/app.js")
+        // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries.
+        // WARNING: Respond.js doesn't work if you view the page via file://
+        //[if lt IE 9]
+        +script("https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js")
+        +script("https://oss.maxcdn.com/respond/1.4.2/respond.min.js")
+        //[endif]
+    
+    body
+        // Preloader.
+        #preloader
+            #status &nbsp;
+        // Scroll top button.
+        a.scroll-to-top(href="#")
+            i.fa.fa-angle-up
+        // Header section.
+        header#header
+            // Menu.
+            .menu-area
+                nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
+                    .container
+                        .navbar-header
+                            // For mobile view collapsed button.
+                            button.navbar-toggle.collapsed(type="button", data-toggle="collapse", data-target="#navbar", aria-expanded="false", aria-controls="navbar")
+                                span.sr-only Toggle navigation
+                                span.icon-bar
+                                span.icon-bar
+                                span.icon-bar
+                            // Text logo.
+                            a.navbar-brand(href="#")
+                                | One
+                                span Pager
+                            // Image logo.
+                            // a.navbar-brand(href="#")
+                            //    img(src="/media/img/logo.png", alt="logo")
+                        #navbar.navbar-collapse.collapse
+                            ul#top-menu.nav.navbar-nav.navbar-right.main-nav
+                                li.active
+                                    a(href="#") Home
+                                li
+                                    a(href="#about") About
+                                li
+                                    a(href="#services") Services
+                                li
+                                    a(href="#works") Works
+                                li
+                                    a(href="#team") Team
+                                li
+                                    a(href="#pricing") Pricing
+                                li
+                                    a(href="#contacts") Contacts
+            // Slider.
+            .slider-area
+                #slides
+                    ul.slides-container
+                        // First slide.
+                        li
+                            .slider-overlay
+                            img(src="/media/img/full-slider/full-slide-1.jpg", alt="img")
+                            .slider-caption
+                                h2 Hi, we are a company
+                                p Who does stuff!
+                                a.slider-btn(href="#") Who are we
+                        // Second slide.
+                        li
+                            .slider-overlay
+                            img(src="/media/img/full-slider/full-slide-2.jpg", alt="img")
+                            .slider-caption
+                                h2 We really are!
+                                p Just scroll down and see for yourself
+                                a.slider-btn(href="#") Who are we
+                    // Slider navigation.
+                    nav.slides-navigation
+                        a.prev(href="/item1")
+                            span.icon-wrap
+                            h3
+                                strong Prev
+                        a.next(href="/item2")
+                            span.icon-wrap
+                            h3
+                                strong Next
+        // About section.
+        section#about
+            .container
+                .row
+                    .col-lg-12.col-md-12
+                        .about-area
+                            // About header.
+                            .heading
+                                h2.wow.fadeInLeftBig About Us
+                                p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                            // About content.
+                            .about-content
+                                .row
+                                    .col-lg-6.col-md-6.col-sm-12
+                                        .about-featured
+                                            #accordion.panel-group
+                                                // Single featured item 1.
+                                                .panel.panel-default.wow.fadeInLeft
+                                                    .panel-heading
+                                                        h4.panel-title
+                                                            a(data-toggle="collapse", data-parent="#accordion", href="#collapseOne")
+                                                                span.fa.fa-check-square-o
+                                                                | Creative & Clean Design
+                                                    #collapseOne.panel-collapse.collapse.in
+                                                        .panel-body It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                                // Single featured item 2.
+                                                .panel.panel-default.wow.fadeInLeft
+                                                    .panel-heading
+                                                        h4.panel-title
+                                                            a(data-toggle="collapse", data-parent="#accordion", href="#collapseTwo")
+                                                                span.fa.fa-check-square-o
+                                                                | 100% responsive layout
+                                                    #collapseTwo.panel-collapse.collapse
+                                                        .panel-body It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                                // Single featured item 3.
+                                                .panel.panel-default.wow.fadeInLeft
+                                                    .panel-heading
+                                                        h4.panel-title
+                                                            a(data-toggle="collapse", data-parent="#accordion", href="#collapseThree")
+                                                                span.fa.fa-check-square-o
+                                                                | Detail Documentation
+                                                    #collapseThree.panel-collapse.collapse
+                                                        .panel-body It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                                // Single featured item 4.
+                                                .panel.panel-default.wow.fadeInLeft
+                                                    .panel-heading
+                                                        h4.panel-title
+                                                            a(data-toggle="collapse", data-parent="#accordion", href="#collapseFour")
+                                                                span.fa.fa-check-square-o
+                                                                | 24 Hours Premium Support
+                                                    #collapseFour.panel-collapse.collapse
+                                                        .panel-body It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                    .col-lg-6.col-md-6.col-sm-12
+                                        .about-slider
+                                            // Featured slider.
+                                            .featured-slider
+                                                .single-item
+                                                    a(href="#")
+                                                        img(src="/media/img/feature-img-1.jpg", alt="img")
+                                                .single-item
+                                                    a(href="#")
+                                                        img(src="/media/img/feature-img-2.jpg", alt="img")
+                                                .single-item
+                                                    a(href="#")
+                                                        img(src="/media/img/feature-img-3.jpg", alt="img")
+                                                .single-item
+                                                    a(href="#")
+                                                        img(src="/media/img/feature-img-4.jpg", alt="img")
+                                                .single-item
+                                                    a(href="#")
+                                                        img(src="/media/img/feature-img-5.jpg", alt="img")
+                                                .single-item
+                                                    a(href="#")
+                                                        img(src="/media/img/feature-img-6.jpg", alt="img")
+            // Skills.
+            .row
+                .col-lg-12.col-md-12
+                    .skills-area
+                        .slider-overlay
+                        .container
+                            .skills
+                                .heading
+                                    h3.wow.fadeInDown Our Skills
+                                .col-lg-3.col-md-3.col-sm-3
+                                    .single-skill.wow.fadeInUp
+                                        #myStat(data-dimension="150", data-text="85%", data-info="", data-width="10", data-fontsize="25", data-percent="85", data-fgcolor="#999", data-bgcolor="#fff", data-icon="fa-task")
+                                            h4 Design
+                                .col-lg-3.col-md-3.col-sm-3
+                                    .single-skill.wow.fadeInUp
+                                        #myStat2(data-dimension="150", data-text="90%", data-info="", data-width="10", data-fontsize="25", data-percent="90", data-fgcolor="#999", data-bgcolor="#fff", data-icon="fa-task")
+                                            h4 HTML/CSS
+                                .col-lg-3.col-md-3.col-sm-3
+                                    .single-skill.wow.fadeInUp
+                                        #myStat3(data-dimension="150", data-text="65%", data-info="", data-width="10", data-fontsize="25", data-percent="65", data-fgcolor="#999", data-bgcolor="#fff", data-icon="fa-task")
+                                            h4 jQuery
+                                .col-lg-3.col-md-3.col-sm-3
+                                    .single-skill.wow.fadeInUp
+                                        #myStat4(data-dimension="150", data-text="75%", data-info="", data-width="10", data-fontsize="25", data-percent="75", data-fgcolor="#999", data-bgcolor="#fff", data-icon="fa-task")
+                                            h4 WordPress
+        // Services section.
+        section#services
+            .container
+                .row
+                    .col-lg-12.col-md-12
+                        // Services heading.
+                        .heading
+                            h2.wow.fadeInLeftBig Our Services
+                            p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                .row
+                    .col-lg-12.col-md-12
+                        // Service.
+                        .service-area
+                            .row
+                                .col-lg-6.col-md-6.col-sm-6
+                                    .single-service.wow.fadeInLeft
+                                        .service-icon-area
+                                            span.fa.fa-line-chart.service-icon
+                                        h3.service-title Planning & Strategy
+                                        p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text
+                                .col-lg-6.col-md-6.col-sm-6
+                                    .single-service.wow.fadeInRight
+                                        .service-icon-area
+                                            span.fa.fa-suitcase.service-icon
+                                        h3.service-title Corporate Branding
+                                        p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text
+                                .col-lg-6.col-md-6.col-sm-6
+                                    .single-service.wow.fadeInLeft
+                                        .service-icon-area
+                                            span.fa.fa-eraser.service-icon
+                                        h3.service-title Web Design & Development
+                                        p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text
+                                .col-lg-6.col-md-6.col-sm-6
+                                    .single-service.wow.fadeInRight
+                                        .service-icon-area
+                                            span.fa.fa-paper-plane.service-icon
+                                        h3.service-title SEO,SMM and Internet marketing
+                                        p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text
+                                .col-lg-6.col-md-6.col-sm-6
+                                    .single-service.wow.fadeInLeft
+                                        .service-icon-area
+                                            span.fa.fa-envelope-o.service-icon
+                                        h3.service-title Email Marketing
+                                        p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text
+                                .col-lg-6.col-md-6.col-sm-6
+                                    .single-service.wow.fadeInRight
+                                        .service-icon-area
+                                            span.fa.fa-support.service-icon
+                                        h3.service-title Premium Customer Support
+                                        p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text
+        // Works section.
+        section#works
+            .row
+                .col-lg-12.col-md-12
+                    .counter-section
+                        .slider-overlay
+                        .container
+                            .counter-area
+                                .heading
+                                    h3.wow.fadeInLeft Some Milestone Works
+                                .col-lg-3.col-md-3.col-sm-3
+                                    .counter.wow.fadeInUp
+                                        i.fa.fa-users.fa-2x
+                                        h2.timer.count-title#count-number(data-to="940", data-speed="1500") 400
+                                        p.count-text Clients
+                                .col-lg-3.col-md-3.col-sm-3
+                                    .counter.wow.fadeInUp
+                                        i.fa.fa-tasks.fa-2x
+                                        h2.timer.count-title#count-number2(data-to="1750", data-speed="1500") 300
+                                        p.count-text Projects
+                                .col-lg-3.col-md-3.col-sm-3
+                                    .counter.wow.fadeInUp
+                                        i.fa.fa-coffee.fa-2x
+                                        h2.timer.count-title#count-number3(data-to="300", data-speed="1500") 200
+                                        p.count-text Cups Of Coffee
+                                .col-lg-3.col-md-3.col-sm-3
+                                    .counter.wow.fadeInUp
+                                        i.fa.fa-bullhorn.fa-2x
+                                        h2.timer.count-title#count-number4(data-to="875", data-speed="1500") 100
+                                        p.count-text Subscribers
+        // Team section.
+        section#team
+            .container
+                .row
+                    .col-lg-12.col-md-12
+                        .heading
+                            h2.wow.fadeInLeftBig Our Team
+                        .team-area
+                            // Team slider.
+                            .team-slider
+                                .col-lg-3.col-md-3.col-sm-4
+                                    .single-team.wow.fadeInUp
+                                        .team-img
+                                            img(src="/media/img/team-1.jpg", alt="img")
+                                        h5 Mr. CEO
+                                        span CEO
+                                        p Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature
+                                        .team-social
+                                            a(href="#")
+                                                i.fa.fa-facebook
+                                            a(href="#")
+                                                i.fa.fa-twitter
+                                            a(href="#")
+                                                i.fa.fa-google-plus
+                                            a(href="#")
+                                                i.fa.fa-linkedin
+                                .col-lg-3.col-md-3.col-sm-4
+                                    .single-team.wow.fadeInUp
+                                        .team-img
+                                            img(src="/media/img/team-2.jpg", alt="img")
+                                        h5 Mr. CTO
+                                        span CTO
+                                        p Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature
+                                        .team-social
+                                            a(href="#")
+                                                i.fa.fa-facebook
+                                            a(href="#")
+                                                i.fa.fa-twitter
+                                            a(href="#")
+                                                i.fa.fa-google-plus
+                                            a(href="#")
+                                                i.fa.fa-linkedin
+        // Pricing section
+        section#pricing
+            .container
+                .row
+                    .col-lg-12.col-md-12
+                        .heading
+                            h2.wow.fadeInLeftBig Our Pricing
+                            p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.
+                .row
+                    .col-lg-12.col-md-12
+                        .pricing-area
+                            .row
+                                .col-lg-3.col-md-3.col-sm-3
+                                    .single-price.wow.fadeInUp
+                                        h3 Basic
+                                        .price.free-price
+                                            h4 Free
+                                        ul.price-features
+                                            li
+                                                | Responsive
+                                                strong Layout
+                                            li
+                                                strong Customizable
+                                                | Features
+                                            li
+                                                | Up to
+                                                strong 5 Projects
+                                            li
+                                                strong 10 GB
+                                                | Storage
+                                            li
+                                                | Up to
+                                                strong 100 Users
+                                            li
+                                                strong 15 GB
+                                                | Bandwith
+                                            li
+                                                strong Security Suite
+                                        a.price-btn(href="#") Select Plan
+                                .col-lg-3.col-md-3.col-sm-3
+                                    .single-price.wow.fadeInUp.premium-price
+                                        h3 Premium
+                                        .price
+                                            h4 $10
+                                            span per month
+                                        ul.price-features
+                                            li
+                                                | Responsive
+                                                strong Layout
+                                            li
+                                                strong Customizable
+                                                | Features
+                                            li
+                                                strong Unlimited Projects
+                                            li
+                                                strong 75 GB
+                                                | Storage
+                                            li
+                                                | Up to
+                                                strong 100 Users
+                                            li
+                                                strong 150 GB
+                                                | Bandwith
+                                            li
+                                                strong Security Suite
+                                        a.price-btn(href="#") Select Plan
+        // Testimonials section.
+        section#testimonials
+            .container
+                .row
+                    .col-lg-7.col-md-7.col-sm-6
+                        .heading
+                            h2.wow.fadeInLeftBig Satisfied Customers
+                            p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                    .col-lg-5.col-md-5.col-sm-6
+                        .testimonial-customer
+                            // Testimonials slider.
+                            ul.testimonial-slider
+                                li
+                                    .media.testimonial-media
+                                        a.media-left.testimonial-img(href="#")
+                                            img(src="/media/img/team-1.jpg", alt="img")
+                                        .media-body
+                                            h4.media-heading Israel Israeli
+                                            span CEO
+                                    .testimonial-content
+                                        p Message of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable
+                                li
+                                    .media.testimonial-media
+                                        a.media-left.testimonial-img(href="#")
+                                            img(src="/media/img/team-2.jpg", alt="img")
+                                        .media-body
+                                            h4.media-heading John Doe
+                                            span CEO
+                                    .testimonial-content
+                                        p Message of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable
+        // Clients section.
+        section#clients
+            .container
+                .row
+                    .col-lg-12.col-md-12.col-sm-12
+                        .heading
+                            h2.wow.fadeInLeftBig Our Best Clients
+                            p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                    .col-lg-12.col-md-12.col-sm-12
+                        .clients-content
+                            .row
+                                // Clients slider.
+                                .clients-slider
+                                    .col-lg-3.col-md-3.col-sm-3
+                                        .single-client
+                                            img(src="/media/img/clients-img-1.png", alt="Clients Brand")
+                                    .col-lg-3.col-md-3.col-sm-3
+                                        .single-client
+                                            img(src="/media/img/clients-img-2.png", alt="Clients Brand")
+                                    .col-lg-3.col-md-3.col-sm-3
+                                        .single-client
+                                            img(src="/media/img/clients-img-3.png", alt="Clients Brand")
+                                    .col-lg-3.col-md-3.col-sm-3
+                                        .single-client
+                                            img(src="/media/img/clients-img-4.png", alt="Clients Brand")
+                                    .col-lg-3.col-md-3.col-sm-3
+                                        .single-client
+                                            img(src="/media/img/clients-img-5.png", alt="Clients Brand")
+        // Contacts section.
+        section#contacts
+            .container
+                .row
+                    .col-lg-12.col-md-12.col-sm-12
+                        .heading
+                            h2.wow.fadeInLeftBig Contact Us
+                            p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                .row
+                    .contact-content
+                        .col-lg-5.col-md-5.col-sm-5
+                            .contact-form
+                                #form-messages
+                                form
+                                    input.form-control(type="text", placeholder="Name")
+                                    input.form-control(type="email", placeholder="Email")
+                                    input.form-control(type="text", placeholder="Subject")
+                                    textarea.form-control(cols="30", rows="10", placeholder="Your Message")
+                                    input.submit-btn(type="submit", value="Send")
+        // Contact feature section.
+        section#contact-feature
+            .slider-overlay
+            .row
+                .col-lg-12.col-md-12
+                    .container
+                        .contact-feature
+                            .col-lg-3.col-md-3.col-sm-6
+                                .single-contact-featured.wow.fadeInUp
+                                    i.fa.fa-phone
+                                    h4 Call Us
+                                    p 972-532-111111
+                            .col-lg-3.col-md-3.col-sm-6
+                                .single-contact-featured.wow.fadeInUp
+                                    i.fa.fa-envelope-o
+                                    h4 Email Address
+                                    p ofirbrukner@gmail.com
+                            .col-lg-3.col-md-3.col-sm-6
+                                .single-contact-featured.wow.fadeInUp
+                                    i.fa.fa-map-marker
+                                    h4 Office Location
+                                    p Israel
+                            .col-lg-3.col-md-3.col-sm-6
+                                .single-contact-featured.wow.fadeInUp
+                                    i.fa.fa-clock-o
+                                    h4 Working Hours
+                                    p Sunday-Thursday 9.00-21.00
+        // Subscribe section
+        section#subscribe
+            .container
+                .row
+                    .col-lg-12.col-md-12
+                        .heading
+                            h2.wow.fadeInLeftBig Subscribe to our Newsletter
+                            p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                        form.subscribe-form
+                            .subscribe-group.wow.fadeInUp
+                                input.form-control.subscribe-mail(type="email", placeholder="Enter your Email address")
+                                input.subscribe-btn(type="submit", value="Subscribe")
+        // Footer
+        footer#footer
+            .container
+                .row
+                    .col-lg-6.col-md-6.col-sm-6
+                        .footer-left
+                            p Designed By Ofir123
+                    .col-lg-6.col-md-6.col-sm-6
+                        .footer-right
+                            ul.social-nav
+                                li
+                                    a(href="#")
+                                        i.fa.fa-facebook
+                                li
+                                    a(href="#")
+                                        i.fa.fa-twitter
+                                li
+                                    a(href="#")
+                                        i.fa.fa-google-plus
+                                li
+                                    a(href="#")
+                                        i.fa.fa-linkedin

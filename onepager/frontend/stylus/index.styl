@@ -1,0 +1,1536 @@
+/* Table of Contents
+==================================================
+  # Basic typography.
+  # Header.
+  # About section.
+  # Services section.
+  # Works section.
+  # Team section.
+  # Pricing section.
+  # Testimonials section.
+  # Clients section.
+  # Contact us section.
+  # Footer.
+*/
+
+// Basic typography.
+
+html
+  overflow-x hidden
+
+body
+  font-family 'Open Sans', sans-serif
+  overflow-x hidden !important
+
+ul
+  padding 0
+  margin 0
+  list-style none
+
+a
+  text-decoration none
+  color #2f2f2f
+
+  &:focus
+    outline none
+    text-decoration none
+
+h1
+h2
+  font-family 'Montserrat', sans-serif
+
+h3
+h4
+h5
+h6
+  font-family 'Varela', sans-serif
+
+h2
+  color #313338
+  font-size 72px
+  font-weight 700
+  line-height 57px
+  margin 0
+  padding-bottom 10px
+  text-transform uppercase
+
+img
+  border none
+
+// Preloader.
+
+#preloader
+  position fixed
+  top 0
+  left 0
+  right 0
+  bottom 0
+  background-color #000 // Change if the mask should have another color then white.
+  z-index 99999 // Makes sure it stays on top.
+
+#status
+  width 200px
+  height 200px
+  position absolute
+  left 50% // Centers the loading animation horizontally one the screen.
+  top 50% // Centers the loading animation vertically one the screen.
+  background-image url('/media/img/status.gif') // Path to your loading animation.
+  background-repeat no-repeat
+  background-position center
+  margin -100px 0 0 -100px // Is width and height divided by two.
+
+// Scroll to top.
+
+.scroll-to-top
+  bottom 60px
+  display none
+  font-size 32px
+  font-weight bold
+  height 50px
+  position fixed
+  right 50px
+  text-align center
+  text-decoration none
+  width 50px
+  z-index 9999
+  color #fff
+  -webkit-transition all 0.5s
+  -moz-transition all 0.5s
+  -ms-transition all 0.5s
+  -o-transition all 0.5s
+  transition all 0.5s
+
+  &:hover
+  &:focus
+    text-decoration none
+    outline none
+
+// Header.
+
+#header
+  float left
+  display inline
+  width 100%
+  position relative
+
+// Menu area.
+
+.menu-area
+  position absolute
+  left 0
+  right 0
+  top 0
+
+.navbar-default
+  background-color transparent
+  border-color transparent
+  margin-top 20px
+  padding 12px 0
+
+.past-main
+  background-color rgba(0,0,0,0.8)
+  margin-top 0
+  padding 6px 0
+  -webkit-transition all 0.5s ease 0s
+  -o-transition all 0.5s ease 0s
+  transition all 0.5s ease 0s
+
+#navbar
+  overflow-x hidden
+
+.navbar-brand
+  color #fff !important
+  font-size 35px
+  font-weight bolder
+  font-family 'Varela', sans-serif
+
+.navbar-default
+.navbar-nav
+
+  &>.active
+
+    &>a
+    &>a:hover
+    &>a:focus
+      background-color transparent
+
+  &>li
+
+    &>a
+      color #fff
+      font-size 15px
+      font-weight 600
+      text-transform uppercase
+
+    &>a:hover
+      text-transform uppercase
+      background-color transparent
+      color #fff
+
+    &>a:focus
+      background-color transparent
+      color #fff
+
+.slider-area
+  float left
+  display inline
+  width 100%
+  position relative
+
+.slider-overlay
+  background none repeat scroll 0 0 #242434
+  height 100%
+  opacity 0.8
+  position absolute
+  right 0
+  top 0
+  width 100%
+  z-index 9
+
+// Slider navigation.
+
+.slides-navigation
+
+  a
+    width 100px
+    height 100px
+
+    &:before
+    &:after
+      position absolute
+      left 50%
+      width 3px
+      height 50%
+      content ''
+      -webkit-transition -webkit-transform 0.3s
+      transition transform 0.3s
+      -webkit-backface-visibility hidden
+      backface-visibility hidden
+
+    &:before
+      top 50%
+      -webkit-transform translateX(-50%) rotate(-135deg)
+      transform translateX(-50%) rotate(-135deg)
+      -webkit-transform-origin 50% 0%
+      transform-origin 50% 0%
+
+    &:after
+      top 50%
+      -webkit-transform translateX(-50%) rotate(-45deg)
+      transform translateX(-50%) rotate(-45deg)
+      -webkit-transform-origin 0 0
+      transform-origin 0 0
+
+  a.next
+
+    &:before
+    .icon-wrap:before
+      -webkit-transform translateX(-50%) rotate(135deg)
+      transform translateX(-50%) rotate(135deg)
+      -webkit-transform-origin 50% 0%
+      transform-origin 50% 0%
+
+    &:after
+    .icon-wrap:after
+      -webkit-transform translateX(-50%) rotate(45deg)
+      transform translateX(-50%) rotate(45deg)
+      -webkit-transform-origin 100% 0%
+      transform-origin 100% 0%
+
+    h3
+      right 100%
+      text-align right
+      -webkit-transform translateY(-50%) translateX(50%)
+      transform translateY(-50%) translateX(50%)
+
+    &:hover
+      &:before
+      .icon-wrap:before
+        -webkit-transform translateX(-50%) rotate(125deg)
+        transform translateX(-50%) rotate(125deg)
+
+      &:after
+      .icon-wrap:after
+        -webkit-transform translateX(-50%) rotate(55deg)
+        transform translateX(-50%) rotate(55deg)
+
+  a.prev
+    h3
+      left 100%
+      -webkit-transform translateY(-50%) translateX(-50%)
+      transform translateY(-50%) translateX(-50%)
+
+  a:hover
+    .icon-wrap:before
+    .icon-wrap:after
+      height 50%
+
+    &:before
+    .icon-wrap:before
+      -webkit-transform translateX(-50%) rotate(-125deg)
+      transform translateX(-50%) rotate(-125deg)
+
+    &:after
+    .icon-wrap:after
+      -webkit-transform translateX(-50%) rotate(-55deg)
+      transform translateX(-50%) rotate(-55deg)
+
+    h3
+      opacity 1
+      -webkit-transform translateY(-50%) translateX(0)
+      transform translateY(-50%) translateX(0)
+
+  .icon-wrap
+    position relative
+    display block
+    width 100%
+    height 100%
+
+    &:before
+    &:after
+      position absolute
+      left 50%
+      width 3px
+      content ''
+      -webkit-backface-visibility hidden
+      backface-visibility hidden
+      z-index 100
+      height 0
+      background #fff
+      -webkit-transition height 0.3s, -webkit-transform 0.3s
+      transition height 0.3s, transform 0.3s
+
+    &:before
+      top 50%
+      -webkit-transform translateX(-50%) rotate(-135deg)
+      transform translateX(-50%) rotate(-135deg)
+      -webkit-transform-origin 50% 0%
+      transform-origin 50% 0%
+
+    &:after
+      top 50%
+      -webkit-transform translateX(-50%) rotate(-45deg)
+      transform translateX(-50%) rotate(-45deg)
+      -webkit-transform-origin 0 0
+      transform-origin 0 0
+
+  h3
+    position absolute
+    top 50%
+    margin 0
+    color #fff
+    text-transform uppercase
+    font-weight 300
+    font-size 0.85em
+    opacity 0
+    -webkit-transition -webkit-transform 0.3s, opacity 0.3s
+    transition transform 0.3s, opacity 0.3s
+
+// Slider caption.
+
+.slider-caption  
+  margin-top 12%
+  padding 0 13%
+  position relative
+  text-align center
+  z-index 999
+
+  &>h2
+    color #ffffff
+    font-size 65px
+    font-weight 700
+    line-height 76px
+    margin 0 auto 10px
+    padding-bottom 8px
+    text-align center
+    text-transform uppercase
+    width 90%
+
+  &>p
+    color #ffffff
+    font-size 20px
+
+  &>a
+    margin-top 30px
+
+.slider-btn
+  padding 10px 15px
+  border 2px solid #fff
+  color #fff
+  font-size 20px
+  display inline-block
+  text-transform uppercase
+
+  &:hover
+  &:focus
+    text-decoration none
+
+// About section.
+
+#about  
+  display inline
+  float left
+  width 100%
+  padding 80px 0
+
+.about-area 
+  float left
+  display inline
+  width 100%
+  min-height 200px
+
+.heading
+  float left
+  display inline
+  width 100%
+
+  h2
+    display inline-block
+    margin-bottom 35px
+    padding-bottom 15px
+    padding-right 50px
+    font-size 40px
+    line-height 40px
+
+  p
+    font-size 16px
+    line-height 28px
+    font-weight 300
+
+  h3
+    color #fff
+    display inline-block
+    float left
+    font-size 40px
+    margin 0 0 40px
+    padding-bottom 10px
+    text-transform uppercase
+    font-weight bold
+    line-height 40px
+
+.about-content 
+  float left
+  display inline
+  width 100%
+  padding 50px 0
+
+.about-featured 
+  float left
+  display inline
+  width 100%
+
+.panel-group
+  .panel
+    border-radius 0
+    margin-bottom 0
+    box-shadow none
+
+  .panel+.panel
+    margin-top 0
+
+.panel-default  
+  border-color transparent
+
+  &>.panel-heading
+    background-color transparent
+    color #333
+    border 0 none !important
+    padding 5px 15px
+
+  .in
+    padding-left 10px
+    margin-left 20px
+    -webkit-transition all 0.5s
+    -o-transition all 0.5s
+    transition all 0.5s
+
+.panel-title
+  border-bottom 1px solid #ccc
+  color #222
+  font-family 'Varela', sans-serif
+  font-size 20px
+  font-weight 400
+  text-transform uppercase
+  -webkit-transition all 0.5s
+  -o-transition all 0.5s
+  transition all 0.5s
+
+  a
+    display block
+    text-decoration none
+    padding-bottom 10px
+
+    span
+      margin-right 5px
+
+.panel-body  
+  border-top-color transparent !important
+  padding 0 15px
+  margin 10px 0
+
+.about-slider 
+  float left
+  display inline
+  width 100%
+  height 350px
+
+  .slick-dots
+    li
+      button
+        &:before
+          content '*'
+          font-size 28px
+
+      .slick-active
+        button
+          &:before
+            opacity 0.75
+
+.single-item
+  float left
+  display inline
+  width 100%
+  height:100%
+
+  img
+    max-width 100%
+
+.skills-area 
+  float left
+  display inline
+  width 100%
+  min-height 350px
+  padding 85px 0
+  background-image url('/media/img/skills-bg.jpg')
+  background-repeat no-repeat
+  background-size 100% 100%
+  position relative
+
+.skills
+  position relative
+  z-index 999
+
+div[data-dimension]  
+  float none
+  margin 0 auto
+
+.circle-text
+  color #fff
+
+.single-skill 
+  float left
+  display block
+  width 100%
+  text-align center
+
+  h4
+    color #ffffff
+    font-size 20px
+    font-weight bold
+
+// Services section.
+
+#services
+  display inline
+  float left
+  padding 80px 0 70px
+  width 100%
+
+.service-area 
+  float left
+  display inline
+  width 100%
+  margin-top 30px
+
+.single-service  
+  display inline
+  float left
+  width 100%
+  padding 0 35px
+  margin-bottom 40px
+
+  &>h2
+    text-align center
+
+    span
+      border-radius 100%
+      color #fff
+      height 150px
+      line-height 120px
+      padding 15px 0
+      width 150px
+
+  .service-title
+    margin 20px 0 20px
+    padding-bottom 10px
+    position relative
+    text-align center
+    text-transform uppercase
+
+    &:after
+      bottom 0
+      content ''
+      height 3px
+      left 40%
+      position absolute
+      width 100px
+
+.service-icon-area 
+  text-align center
+  margin-bottom 10px
+
+.service-icon  
+  border-radius 100%
+  color #fff
+  font-size 72px
+  height 150px
+  line-height 120px
+  padding 15px 0
+  width 150px
+  -webkit-transition all 0.5s
+  -o-transition all 0.5s
+  transition all 0.5s
+
+// Works section.
+
+#works  
+  background-color #4f535e
+  display inline
+  float left
+  width 100%
+
+.counter-section  
+  background-image url('/media/img/works-counter-bg.jpg')
+  background-repeat no-repeat
+  background-size 100% 100%
+  display inline
+  float left
+  min-height 350px
+  padding 80px 0
+  position relative
+  width 100%
+
+.counter-area  
+  position relative
+  z-index 999
+
+.counter  
+ padding 20px 0
+ border-radius 5px
+
+.count-title  
+  color #fff
+  font-size 45px
+  font-weight bold
+  margin-bottom 0
+  margin-top 15px
+  text-align center
+
+.count-text  
+  color #fff
+  font-size 18px
+  margin-bottom 0
+  margin-top 10px
+  text-align center
+  text-transform uppercase
+
+.fa-2x  
+  display table
+  float none
+  margin 0 auto
+  font-size 40px
+
+// Team section.
+
+#team 
+  float left
+  display inline
+  width 100%
+  padding:80px 0
+
+.team-area 
+  float left
+  display inline
+  width 100%
+
+.team-slider
+  float left
+  display inline
+  width 100%
+
+  .slick-next
+  .slick-prev
+    height 40px
+
+.single-team
+  border 2px solid #ccc
+  border-radius 5px
+  display inline
+  float left
+  padding 25px 15px
+  text-align center
+  width 100%
+
+  h5
+    color #555
+    font-weight bold
+    margin-bottom 0
+    margin-top 18px
+    text-transform uppercase
+    font-size 17px
+
+  span
+    display inline-block
+    font-size 15px
+    font-weight bold
+    margin-bottom 10px
+    text-transform uppercase
+
+  p
+    line-height 26px
+
+.team-img 
+  float left
+  display block
+  width 100%
+
+  &>img
+    border-radius 100%
+    height 150px
+    margin 0 auto 15px
+    width 150px
+
+.team-social
+  float left
+  display inline
+  width 100%
+  margin-top 10px
+
+  a
+    color #fff
+    font-size 18px
+    display inline-block
+    background #ccc
+    width 35px
+    height 35px
+    line-height 35px
+    border-radius 50%
+    -webkit-transition all 0.5s
+    -o-transition all 0.5s
+    transition all 0.5s
+
+// Pricing section.
+
+#pricing  
+  background none repeat scroll 0 0 #f8f8f8
+  display inline
+  float left
+  padding 80px 0
+  width 100%
+  border-top 1px solid #eee
+  border-bottom 1px solid #eee
+
+.pricing-area  
+  display inline
+  float left
+  margin-top 30px
+  width 100%
+
+.single-price  
+  display inline
+  float left
+  text-align center
+  width 100%
+  border 1px solid #ccc
+  background #fff
+  padding 5px 0
+
+  &>h3
+    font-size 24px
+    font-weight 700
+    line-height 100px
+    margin 0
+    text-transform uppercase
+
+  .price
+    color #fff
+    padding 15px 0
+
+    &>h4
+      font-size 60px
+      font-weight 700
+      line-height 60px
+      margin 0 0 5px
+
+    &>span
+      font-size 15px
+
+  .free-price
+    &>h4
+      padding 13px 0
+
+.price-features
+  padding 10px 25px
+
+  li
+    border-bottom 1px solid #f2f2f2
+    display block
+    font-size 15px
+    line-height 18px
+    padding 10px 0
+    text-transform uppercase
+
+.price-btn  
+  color #fff !important
+  display inline-block
+  font-size 15px
+  font-weight bold
+  margin-bottom 20px
+  margin-top 10px
+  padding 10px 20px
+  text-transform uppercase
+  -webkit-transition all 0.5s
+  -o-transition all 0.5s
+  transition all 0.5s
+
+  &:hover
+    text-decoration none
+    outline none
+    background-color #fff
+
+.premium-price
+  border 1px solid #fff
+  color #ffffff
+
+  .price
+    border-bottom 3px solid #fff
+    border-top 3px solid #fff
+
+  .price-btn
+    border-color #ffffff
+    background-color #ffffff
+
+// Testimonials section.
+
+#testimonials
+  background none repeat scroll 0 0 #f8f8f8
+  display inline
+  float left
+  padding 80px 0
+  width 100%
+  border-top 1px solid #eee
+  border-bottom 1px solid #eee
+
+  .heading
+    margin-top 20px
+
+.testimonial-customer 
+  float left
+  display inline
+  width 100%
+
+.testimonial-slider 
+  float left
+  display inline
+  width 100%
+
+  &>li
+    width 380px
+    margin 0 auto
+
+  .slick-dots
+    li
+      border 1px solid #e6e6e6
+      color #fff
+      cursor pointer
+      display inline-block
+      height 20px
+      line-height 102px
+      margin 0 5px
+      padding 7px 5px
+      position relative
+      width 34px
+
+      button
+        background none repeat scroll 0 0 #e6e6e6
+        height 4px
+        padding 0
+        width 20px
+
+        &:before
+          content:none
+
+.testimonial-media
+  margin 0 auto !important
+  width 250px
+
+  .media-body
+    vertical-align middle
+
+    span
+      font-size 16px
+    font-weight bold
+    text-transform uppercase
+
+  .media-heading
+    font-size 20px
+
+  .media-left
+    padding-right 20px
+
+.testimonial-img img
+  border-radius 100%
+  height 100px
+  width 100px
+
+.testimonial-content
+  background-color #fff
+  border 1px solid #e6e6e6
+  border-radius 6px
+  margin 40px auto 0
+  padding 10px
+  position relative
+  width 100%
+
+  &:before
+    background-image url('/media/img/testimonial-arrow.png')
+    background-position center center
+    background-repeat no-repeat
+    content ''
+    height 22px
+    left 30%
+    position absolute
+    top -22px
+    width 32px
+
+// Clients section.
+
+#clients  
+  display inline
+  float left
+  padding 80px 0 150px
+  width 100%
+
+.clients-content 
+  float left
+  display inline
+  width 100%
+  margin-top 30px
+
+.clients-slider 
+  float left
+  display inline
+  width 100%
+
+  .slick-prev
+    border-radius 5px 0 0 5px
+    color #fff
+    height 40px
+    left 46.5%
+    top 160%
+
+  .slick-next
+    border-radius 0 5px 5px 0
+    color #fff
+    right 46.5%
+    top 160%
+    height 40px
+
+.single-client  
+  border 1px solid #ccc
+  display inline
+  float left
+  text-align center
+  width 100%
+  padding 25px 0
+
+  &>img
+    margin 0 auto
+
+// Contact us section.
+
+#contacts
+  background none repeat scroll 0 0 #f8f8f8
+  display inline
+  float left
+  padding 80px 0 0
+  width 100%
+  border-top 1px solid #eee
+  border-bottom 1px solid #eee
+
+.contact-content  
+  display inline
+  float left
+  margin-top 30px
+  width 100%
+  padding-bottom 30px
+
+.contact-form 
+  float left
+  display inline
+  width 100%
+
+.contact-form
+  input[type='text']
+  input[type='email']
+    margin-bottom 30px
+    border-radius 0
+
+.submit-btn  
+  border 2px solid #fff
+  color #fff
+  margin-top 30px
+  padding 10px 20px
+  font-size 18px
+  font-weight 700
+  text-transform uppercase
+  -webkit-transition all 0.5s
+  -moz-transition all 0.5s
+  -ms-transition all 0.5s
+  -o-transition all 0.5s
+  transition all 0.5s
+
+  &:hover
+    background-color #fff
+
+.form-control 
+  display block
+  width 100%
+  height 34px
+  padding 6px 12px
+  font-size 14px
+  line-height 1.42857143
+  color #555
+  background-color #fff
+  background-image none
+  border 1px solid #ccc
+  border-radius 0
+  -webkit-box-shadow inset 0 1px 1px rgba(0, 0, 0, .075)
+  box-shadow inset 0 1px 1px rgba(0, 0, 0, .075)
+  -webkit-transition border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s
+  -o-transition border-color ease-in-out .15s, box-shadow ease-in-out .15s
+  transition border-color ease-in-out .15s, box-shadow ease-in-out .15s
+
+  &:focus
+    outline 0
+    box-shadow:none
+
+  &::-moz-placeholder
+    color #999
+    opacity 1
+
+  &:-ms-input-placeholder
+    color #999
+
+  &::-webkit-input-placeholder
+    color #999
+
+.form-control[disabled]
+.form-control[readonly]
+fieldset[disabled] .form-control  
+  cursor not-allowed
+  background-color #eee
+  opacity 1
+
+textarea
+  .form-control
+    height auto
+
+.contact-feature
+  float left
+  display inline
+  width 100%
+  position relative
+  z-index 999
+
+.single-contact-featured
+  border 1px solid #ccc
+  display inline
+  float left
+  padding 20px 10px
+  text-align center
+  width 100%
+
+  &>i
+    font-size 50px
+    line-height 50px
+    margin-bottom 5px
+
+  &>h4
+    font-size 18px
+    text-transform uppercase
+    font-weight 800
+    color #ffffff
+
+  &>p
+    color #888888
+
+.success
+  border 1px solid #008000
+  color #008000
+  margin-bottom 10px
+  padding 5px
+
+.error
+  border 1px solid #ff0000
+  color #ff0000
+  margin-bottom 10px
+  padding 5px
+
+#contact-feature 
+  background-image url('/media/img/contact-feature-bg.jpg')
+  background-repeat no-repeat
+  background-size 100% 100%
+  position relative
+  float left
+  display block
+  width 100%
+  padding 50px 0
+
+#subscribe
+  float left
+  display inline
+  width 100%
+  padding 80px 0
+
+.subscribe-form  
+  margin 0 auto
+  width 60%
+
+.subscribe-group
+  display inline
+  float left
+  margin-top 40px
+  width 100%
+
+.subscribe-mail  
+  border-radius 0
+  display inline
+  float left
+  height 50px
+  width 80%
+  font-size 18px
+
+.subscribe-btn
+  border medium none
+  color #fff
+  display inline
+  float left
+  font-size 18px
+  font-weight bold
+  height 50px
+  text-transform uppercase
+  width 20%
+  -webkit-transition all 0.5s
+  -o-transition all 0.5s
+  transition all 0.5s
+
+  &:hover
+    opacity 0.75
+
+// Footer.
+
+#footer 
+  float left
+  display inline
+  width 100%
+  padding 20px
+  background-color #444
+
+.footer-left
+  float left
+  display inline
+  width 100%
+
+  &>p
+    color #ffffff
+    margin-bottom 0
+    margin-top 5px
+
+    a
+      font-weight bold
+
+.footer-right 
+  float left
+  display inline
+  width 100%
+
+.social-nav 
+  text-align right
+
+  li
+    display inline-block
+
+    a
+      border 1px solid #fff
+      color #ffffff
+      display inline-block
+      font-size 18px
+      height 30px
+      margin-left 5px
+      text-align center
+      width 35px
+      line-height 28px
+      -webkit-transition all 0.5s
+      -o-transition all 0.5s
+      transition all 0.5s
+
+// Responsive styles.
+
+@media(max-width 1199px)
+  .slider-caption
+    &>h2
+      width 100%
+
+  .slider-caption
+    margin-top 25%
+
+  .subscribe-mail
+    width 76%
+
+  .subscribe-btn
+    width 24%
+
+@media(max-width 991px)
+  .navbar-default
+    .navbar-nav
+      &>li
+        &>a
+          font-size 13px
+          padding 15px 6px
+
+  .navbar-brand
+    font-size 28px
+
+  #slides
+    height 600px !important
+
+  .slider-caption
+    &>h2
+      font-size 48px
+      line-height 48px
+
+    &>p
+      font-size 18px
+
+  .about-area
+    padding-bottom 80px
+
+  .about-slider
+    margin-top 30px
+
+  .single-item
+    text-align center
+
+    img
+      display inline-block
+
+  .single-service
+    .service-title
+      font-size 18px
+
+    &>.service-title
+      &:after
+        left 33%
+
+  .single-price
+    &>h3
+      font-size 20px
+      line-height 80px
+
+    .price
+      &>h4
+        font-size 50px
+        line-height 50px
+
+  .price-features
+    li
+      font-size 13px
+      line-height 15px
+
+  .price-btn
+    font-size 13px
+    padding 10px 15px
+
+  .testimonial-content
+    width 100%
+
+  .clients-slider
+    .slick-prev
+      left 45%
+
+    .slick-next
+      right 45%
+
+  .subscribe-btn
+    font-size 15px
+
+  .single-contact-featured
+    margin-bottom 30px
+
+
+@media(max-width 767px)
+  .navbar-collapse
+    background-color rgba(0,0,0,0.8)
+
+  .main-nav
+    text-align center
+
+  .navbar-default
+    .navbar-toggle:hover
+    .navbar-toggle:focus
+        background-color
+          rgba(0,0,0,0.5)
+
+  #slides
+    height 360px !important
+
+  .slider-caption
+    margin-top 15%
+
+    &>h2
+      font-size 25px
+      line-height 26px
+
+    &>p
+      font-size 15px
+
+  .slider-btn
+    font-size 18px
+
+  .heading
+    h2
+      font-size 30px
+      line-height 30px
+
+  .skills-area
+    background-size cover
+
+  .single-skill
+    width 50%
+    margin-bottom 22px
+
+  .counter
+    width 50%
+    float left
+
+  .counter-section
+    background-size cover
+
+  .single-price
+    margin-bottom 30px
+
+    &>h3
+      font-size 24px
+      line-height 100px
+
+    .price
+      &>h4
+        font-size 60px
+        line-height 60px
+
+  .price-features
+    li
+      font-size 15px
+      line-height 18px
+
+  .price-btn
+    font-size 15px
+    padding 10px 20px
+
+  .testimonial-content
+    &:before
+      left 35%
+
+  .single-client
+    padding 18px 10px
+
+    &>img
+      max-width 100%
+
+  #contact-feature
+    background-size cover
+
+  .subscribe-form
+    margin 0 auto
+    width 85%
+
+  .team-social
+    a
+      font-size 15px
+      height 30px
+      line-height 30px
+      width 30px
+
+  #about
+    padding 50px 0
+
+  #service
+    padding 50px 0 50px
+
+  #works
+    padding 0 0 50px
+
+  #team
+    padding 50px 0
+
+  #pricing
+    padding 50px 0
+
+  #testimonial
+    padding 50px 0
+
+  #clients
+    padding 50px 0 100px
+
+  #contact
+    padding 50px 0 0
+
+  #subscribe
+    padding 50px  0
+
+  .social-nav
+    margin-top 20px
+    text-align center
+
+  .footer-left
+    text-align center
+
+  .single-service
+    &>.service-title
+      &:after
+        left 41%
+
+@media(max-width 480px)
+  #slides
+    height 320px !important
+
+  .slider-caption
+    margin-top 20%
+
+    &>h2
+      font-size 20px
+      line-height 22px
+      margin-bottom 0
+
+    &>p
+      font-size 14px
+
+    &>a
+      font-size 15px
+      margin-top 20px
+      padding 8px 10px
+
+  .clients-slider
+    .slick-prev
+      left 43%
+
+    .slick-next
+      right 43%
+
+  .subscribe-form
+    width 100%
+
+  .footer-left
+    text-align center
+
+  .footer-right
+    margin-top 20px
+
+  .social-nav
+    text-align center
+
+  .testimonial-content
+    &:before
+      left 30%
+
+  .single-service
+    &>.service-title
+      &:after
+        left 38%
+
+@media(max-width 360px)
+  .slider-caption
+    margin-top 28%
+
+    &>a
+      margin-top 10px
+
+    &>h2
+      font-size 18px
+      line-height 20px
+
+  .slides-navigation
+    display none
+
+    h3
+      display none
+
+  .panel-title
+    font-size 17px
+
+  .about-area
+    padding-bottom 0
+
+  .about-slider
+    height auto
+
+  .single-skill
+    margin-bottom 25px
+    width 100%
+
+  .heading
+    h2
+      font-size 25px
+      line-height 30px
+
+    h3
+      font-size 20px
+      line-height 25px
+      margin 0 0 30px
+
+  .counter
+    width 100%
+    margin-bottom 15px
+
+  .clients-slider
+    .slick-prev
+      left 40%
+
+    .slick-next
+      right 40%
+
+  .subscribe-mail
+    width 70%
+    font-size 15px
+
+  .subscribe-btn
+    width 29%
+    font-size 15px
+
+  .single-service
+    &>.service-title
+      &:after
+        left 32%
+
+  .previous-nav
+    padding 9px
+
+  .next-nav
+    padding 9px
+
+@media(max-width 320px)
+  .slider-caption
+    margin-top 34%
+
+    &>h2
+      font-size 15px
+      line-height 18px
+
+  .single-service
+    &>.service-title
+      &:after
+        left 29%
+
+  .subscribe-btn
+    font-size 11px
