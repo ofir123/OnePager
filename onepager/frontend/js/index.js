@@ -12,14 +12,15 @@
 	11. Preloader.
 	12. Menu scroll.
 	13. Mobile menu close.
+    14. Videos.
 **/
 
 jQuery(function($) {
 
 	// 1. Superslides slider.
-	jQuery("#slides").superslides({
-      animation: "slide",
-      play: "5000"
+	$("#slides").superslides({
+        animation: "slide",
+        play: "5000"
     });
 
 	// 2. Fixed top menu bar.
@@ -279,7 +280,7 @@ jQuery(function($) {
 
 	// 11. Preloader.
 	// Makes sure the whole site is loaded.
-    jQuery(window).load(function() {
+    $(window).load(function() {
         // Will first fade out the loading animation.
         $("#status").fadeOut();
         // Will fade out the white div that covers the website.
@@ -331,9 +332,51 @@ jQuery(function($) {
 	    }
 	});
 
-	//  13. Mobile menu active close.
+	// 13. Mobile menu active close.
 	$(".navbar-nav").on("click", "li a", function() {
 	    $(".navbar-collapse").collapse("hide");
 	});
 
 });
+
+// 14. YouTube player.
+// Load the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// Create an <iframe> (and YouTube player) after the API code downloads.
+var player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player("video-player", {
+        height: "340",
+        width: "560",
+        videoId: "vLT3A0a3hoQ",
+        playerVars: {
+            rel: 0,
+            autoPlay: 0,
+            fs: 1,
+            theme: "dark"
+        },
+        events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange
+        }
+    });
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+}
+
+// The API calls this function when the player's state changes.
+// The function indicates that when playing a video (state=1),
+// the superslides animation should stop.
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING) {
+        jQuery("#slides").superslides('stop');
+    } else if (event.data == YT.PlayerState.PAUSED) {
+        setTimeout(function() { jQuery("#slides").superslides('start'); }, 5000);
+    }
+}
